@@ -10,7 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    //1 piedra 2 papel 3 tijera
+
+    // 1 piedra 2 papel 3 tijera
     var seleccionadoTu: Int = 0
     var seleccionadoCPU: Int = 0
 
@@ -18,109 +19,154 @@ class MainActivity : AppCompatActivity() {
     var contadorPuntCPU: Int = 0
     var contadorEmpates: Int = 0
 
+    lateinit var imgTu: ImageView
+    lateinit var imgCPU: ImageView
 
-    var imgTu: ImageView = findViewById(R.id.iv_tu)
-    var imgCPU: ImageView = findViewById(R.id.iv_CPU)
+    lateinit var resultado: TextView
 
-    var resultado: TextView = findViewById(R.id.tv_qnGana)
+    lateinit var botPiedra: Button
+    lateinit var botPapel: Button
+    lateinit var botTijera: Button
+    lateinit var botReiniciar: Button
 
-    var botPiedra: Button = findViewById(R.id.bt_piedra)
-    var botPapel: Button = findViewById(R.id.bt_papel)
-    var botTijera: Button = findViewById(R.id.bt_tijera)
-    var botReiniciar: Button = findViewById(R.id.bt_reiniciar)
-
-    var puntTu: TextView = findViewById(R.id.tv_puntTu)
-    var puntCPU: TextView = findViewById(R.id.tv_puntCPU)
-    var cantEmpates: TextView = findViewById(R.id.tv_empates)
-
+    lateinit var puntTu: TextView
+    lateinit var puntCPU: TextView
+    lateinit var cantEmpates: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        imgTu.setImageResource(R.drawable.fondo)
+        imgCPU.setImageResource(R.drawable.fondo)
+
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom
+            )
             insets
         }
 
+        imgTu = findViewById(R.id.iv_tu)
+        imgCPU = findViewById(R.id.iv_CPU)
 
+        resultado = findViewById(R.id.tv_qnGana)
 
+        botPiedra = findViewById(R.id.bt_piedra)
+        botPapel = findViewById(R.id.bt_papel)
+        botTijera = findViewById(R.id.bt_tijera)
+        botReiniciar = findViewById(R.id.bt_reiniciar)
+
+        puntTu = findViewById(R.id.tv_puntTu)
+        puntCPU = findViewById(R.id.tv_puntCPU)
+        cantEmpates = findViewById(R.id.tv_empates)
 
         botPiedra.setOnClickListener {
             imgTu.setImageResource(R.drawable.piedra)
             seleccionadoTu = 1
 
-            //funcion aletorio de enemigo
             seleccionadoCPU = aleatorioCPU()
-            //comparacion de selecciones
-            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
 
+            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
         }
 
         botPapel.setOnClickListener {
             imgTu.setImageResource(R.drawable.papel)
             seleccionadoTu = 2
 
-            //funcion aletorio de enemigo
             seleccionadoCPU = aleatorioCPU()
-            //comparacion de selecciones
-            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
 
+            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
         }
 
         botTijera.setOnClickListener {
             imgTu.setImageResource(R.drawable.tijera)
-            seleccionadoTu = 2
+            seleccionadoTu = 3
 
-            //funcion aletorio de enemigo
             seleccionadoCPU = aleatorioCPU()
-            //comparacion de selecciones
+
             quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
+        }
+        botReiniciar.setOnClickListener {
+
+            imgTu.setImageResource(R.drawable.fondo)
+            imgCPU.setImageResource(R.drawable.fondo)
+
+            
 
         }
-
 
     }
 
     fun aleatorioCPU(): Int {
-        return (1..3).random()
-    }
+        val seleccion: Int = (1..3).random()
 
-    fun quienGana(tu: Int, CPU: Int){
-
-        if(( tu == 1 && CPU == 1) || ( tu == 2 && CPU == 2) || ( tu == 3 && CPU == 3)){
-            //empate
-            contadorEmpates += 1
-            resultado.text = "EMPATE"
-
-        } else if( tu == 1 && CPU == 3){
-            //ganas con piedra
-            contadorPuntTu += 1
-            resultado.text = "¡GANAS!"
-
-        } else if( CPU == 1 && tu == 3){
-            //pierdes por piedra
-            contadorPuntCPU += 1
-            resultado.text = "...PIERDES..."
-
-        } else if ( tu == 2 && CPU == 1){
-            //ganas con papel
-            contadorPuntTu += 1
-            resultado.text = "¡GANAS!"
-        } else if ( CPU == 2 && tu == 1){
-            //pierdes por papel
-            contadorPuntCPU += 1
-            resultado.text = "...PIERDES..."
-        } else if ( tu == 3 && CPU == 2){
-            //ganas con tijera
-            contadorPuntTu += 1
-            resultado.text = "¡GANAS!"
-        } else if (CPU == 3 && tu == 2){
-            //pierdes por tijera
-            contadorPuntCPU += 1
-            resultado.text = "...PIERDES..."
+        if (seleccion == 1) {
+            imgCPU.setImageResource(R.drawable.piedra)
+        } else if (seleccion == 2) {
+            imgCPU.setImageResource(R.drawable.papel)
+        } else if (seleccion == 3) {
+            imgCPU.setImageResource(R.drawable.tijera)
         }
 
+        return seleccion
     }
+
+    fun quienGana(tu: Int, CPU: Int) {
+
+        if ((tu == 1 && CPU == 1) ||
+            (tu == 2 && CPU == 2) ||
+            (tu == 3 && CPU == 3)
+        ) {
+            // empate
+            contadorEmpates += 1
+            resultado.text = "EMPATE"
+            cantEmpates.text = "Empates: " + contadorEmpates.toString()
+
+        } else if (tu == 1 && CPU == 3) {
+            // ganas con piedra
+            contadorPuntTu += 1
+            resultado.text = "¡GANAS!"
+            puntTu.text = "Tú: " + contadorPuntTu.toString()
+
+        } else if (CPU == 1 && tu == 3) {
+            // pierdes por piedra
+            contadorPuntCPU += 1
+            resultado.text = "...PIERDES..."
+            puntCPU.text = "CPU: " + contadorPuntCPU.toString()
+
+        } else if (tu == 2 && CPU == 1) {
+            // ganas con papel
+            contadorPuntTu += 1
+            resultado.text = "¡GANAS!"
+            puntTu.text = "Tú: " + contadorPuntTu.toString()
+
+        } else if (CPU == 2 && tu == 1) {
+            // pierdes por papel
+            contadorPuntCPU += 1
+            resultado.text = "...PIERDES..."
+            puntCPU.text = "CPU: " + contadorPuntCPU.toString()
+
+        } else if (tu == 3 && CPU == 2) {
+            // ganas con tijera
+            contadorPuntTu += 1
+            resultado.text = "¡GANAS!"
+            puntTu.text = "Tú: " + contadorPuntTu.toString()
+
+        } else if (CPU == 3 && tu == 2) {
+            // pierdes por tijera
+            contadorPuntCPU += 1
+            resultado.text = "...PIERDES..."
+            puntCPU.text = "CPU: " + contadorPuntCPU.toString()
+
+        }
+    }
+
+
 }
