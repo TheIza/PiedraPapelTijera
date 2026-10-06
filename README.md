@@ -4,6 +4,10 @@ Aplicación Android del clásico juego de **Piedra, Papel o Tijera**, desarrolla
 
 El jugador elige una opción y la CPU genera una elección aleatoria. Después se muestra quién ha ganado y se actualiza el marcador.
 
+## imagen
+<img width="465" height="792" alt="image" src="https://github.com/user-attachments/assets/9fa64494-6711-47c4-bdc3-61d2e9c4d43e" />
+
+
 ## Características
 
 - Juego de Piedra, Papel o Tijera contra la CPU.
