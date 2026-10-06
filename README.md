@@ -4,8 +4,9 @@ Aplicación Android del clásico juego de **Piedra, Papel o Tijera**, desarrolla
 
 El jugador elige una opción y la CPU genera una elección aleatoria. Después se muestra quién ha ganado y se actualiza el marcador.
 
-## imagen
+## Capturas
 <img width="465" height="792" alt="image" src="https://github.com/user-attachments/assets/9fa64494-6711-47c4-bdc3-61d2e9c4d43e" />
+<img width="378" height="786" alt="image" src="https://github.com/user-attachments/assets/7348cdae-77d9-420a-8a45-307f5c6e7b80" />
 
 
 ## Características
@@ -117,11 +118,4 @@ Cada vez que termina una ronda se incrementa el contador correspondiente.
 
 El botón **REINICIAR** pone todos los contadores a `0` y devuelve las imágenes a su estado inicial.
 
-## Capturas
 
-Añade aquí las capturas de pantalla de la aplicación:
-
-```markdown
-![Pantalla principal](screenshots/pantalla-principal.png)
-![Partida](screenshots/partida.png)
-```
