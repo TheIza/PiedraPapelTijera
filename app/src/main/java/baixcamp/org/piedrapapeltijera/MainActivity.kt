@@ -34,10 +34,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var cantEmpates: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        imgTu.setImageResource(R.drawable.fondo)
-        imgCPU.setImageResource(R.drawable.fondo)
-
-        super.onCreate(savedInstanceState)
+       super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -53,8 +50,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+
+
         imgTu = findViewById(R.id.iv_tu)
         imgCPU = findViewById(R.id.iv_CPU)
+
+        imgTu.setImageResource(R.drawable.fondo)
+        imgCPU.setImageResource(R.drawable.fondo)
 
         resultado = findViewById(R.id.tv_qnGana)
 
@@ -98,7 +100,15 @@ class MainActivity : AppCompatActivity() {
             imgTu.setImageResource(R.drawable.fondo)
             imgCPU.setImageResource(R.drawable.fondo)
 
-            
+            contadorPuntCPU = 0
+            contadorPuntTu = 0
+            contadorEmpates = 0
+
+            puntTu.text = "Tú: " + contadorPuntTu.toString()
+            puntCPU.text = "CPU: " + contadorPuntCPU.toString()
+            cantEmpates.text = "Empates: " + contadorEmpates.toString()
+
+            resultado.text = "reiniciado"
 
         }
 
