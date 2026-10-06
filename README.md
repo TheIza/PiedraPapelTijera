@@ -10,12 +10,6 @@ El jugador elige una opción y la CPU genera una elección aleatoria. Después s
 <img width="250" height="490" alt="image" src="https://github.com/user-attachments/assets/b9a37ca2-701e-43bc-af1f-21ad61d13f8a" />
 
 
-
-<img width="378" height="612" alt="image" src="https://github.com/user-attachments/assets/01340116-aed1-4cc0-aff0-9ec93338057e" />
-<img width="372" height="606" alt="image" src="https://github.com/user-attachments/assets/427a2b63-922f-45f6-8ae3-9c81f78bfa75" />
-<img width="378" height="618" alt="image" src="https://github.com/user-attachments/assets/b9a37ca2-701e-43bc-af1f-21ad61d13f8a" />
-
-
 ## Características
 
 - Juego de Piedra, Papel o Tijera contra la CPU.
