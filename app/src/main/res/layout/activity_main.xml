@@ -18,7 +18,9 @@
         android:text="TÚ"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="@+id/tv_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+        android:textColor="@color/black"
+        />
 
     <TextView
         android:id="@+id/tv_titulo"
@@ -45,7 +47,9 @@
         android:text="CPU"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_titulo"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
+        android:textColor="@color/black"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -96,7 +100,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="?android:attr/textSelectHandleLeft" />
+                app:srcCompat="@drawable/piedra" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -152,7 +156,9 @@
         app:cornerRadius="7dp"
         app:layout_constraintEnd_toStartOf="@+id/bt_papel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_qnGana" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_qnGana"
+        android:textColor="@color/white"
+        />
 
     <Button
         android:id="@+id/bt_papel"
@@ -164,7 +170,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/bt_piedra"
         app:layout_constraintEnd_toStartOf="@+id/bt_tijera"
         app:layout_constraintStart_toEndOf="@+id/bt_piedra"
-        app:layout_constraintTop_toTopOf="@+id/bt_piedra" />
+        app:layout_constraintTop_toTopOf="@+id/bt_piedra"
+        android:textColor="@color/white"
+        />
 
     <Button
         android:id="@+id/bt_tijera"
@@ -177,7 +185,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/bt_papel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bt_papel"
-        app:layout_constraintTop_toTopOf="@+id/bt_papel" />
+        app:layout_constraintTop_toTopOf="@+id/bt_papel"
+        android:textColor="@color/white"
+        />
 
     <Button
         android:id="@+id/bt_reiniciar"
@@ -190,7 +200,9 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_empates"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="@+id/tv_empates"
-        app:layout_constraintTop_toBottomOf="@+id/tv_empates" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_empates"
+        android:textColor="@color/white"
+        />
 
     <TextView
         android:id="@+id/tv_puntTu"
