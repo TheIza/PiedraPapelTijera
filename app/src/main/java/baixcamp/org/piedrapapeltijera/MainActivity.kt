@@ -54,11 +54,31 @@ class MainActivity : AppCompatActivity() {
             //funcion aletorio de enemigo
             seleccionadoCPU = aleatorioCPU()
             //comparacion de selecciones
-
+            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
 
         }
 
+        botPapel.setOnClickListener {
+            imgTu.setImageResource(R.drawable.papel)
+            seleccionadoTu = 2
 
+            //funcion aletorio de enemigo
+            seleccionadoCPU = aleatorioCPU()
+            //comparacion de selecciones
+            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
+
+        }
+
+        botTijera.setOnClickListener {
+            imgTu.setImageResource(R.drawable.tijera)
+            seleccionadoTu = 2
+
+            //funcion aletorio de enemigo
+            seleccionadoCPU = aleatorioCPU()
+            //comparacion de selecciones
+            quienGana(tu = seleccionadoTu, CPU = seleccionadoCPU)
+
+        }
 
 
     }
@@ -73,7 +93,34 @@ class MainActivity : AppCompatActivity() {
             //empate
             contadorEmpates += 1
             resultado.text = "EMPATE"
-        } 
+
+        } else if( tu == 1 && CPU == 3){
+            //ganas con piedra
+            contadorPuntTu += 1
+            resultado.text = "¡GANAS!"
+
+        } else if( CPU == 1 && tu == 3){
+            //pierdes por piedra
+            contadorPuntCPU += 1
+            resultado.text = "...PIERDES..."
+
+        } else if ( tu == 2 && CPU == 1){
+            //ganas con papel
+            contadorPuntTu += 1
+            resultado.text = "¡GANAS!"
+        } else if ( CPU == 2 && tu == 1){
+            //pierdes por papel
+            contadorPuntCPU += 1
+            resultado.text = "...PIERDES..."
+        } else if ( tu == 3 && CPU == 2){
+            //ganas con tijera
+            contadorPuntTu += 1
+            resultado.text = "¡GANAS!"
+        } else if (CPU == 3 && tu == 2){
+            //pierdes por tijera
+            contadorPuntCPU += 1
+            resultado.text = "...PIERDES..."
+        }
 
     }
 }
